@@ -15,45 +15,50 @@ public class Book {
      * @param ISBN the book´s unique id
      * @param genre the book´s genre
      */
-    public Book (String title, String author, String ISBN, String category) {
+    public Book (String title, String author, String ISBN, String genre) {
         this.title = title;
         this.author = author;
         this.ISBN = ISBN;
-        this.genre = category;
+        this.genre = genre;
         available = true;
 
     }
 
     /**
-     * Gives the title of the book
+     * Returns the title of the book
+     * @return title of the book
      */
     public String getTitle() {
         return this.title;
     }
 
     /**
-     * Gives the author of the book
+     * Returns the author of the book
+     * @return author of the book
      */
     public String getAuthor() {
         return this.author;
     }
 
     /**
-     * Gives the book unique id
+     * Returns the book unique id
+     * @return ISBN of the book
      */
     public String getISBN() {
         return this.ISBN;
     }
 
     /**
-     * Gives the book genre
+     * Returns the book genre
+     * @return genre of the book
      */
     public String getGenre() {
         return this.genre;
     }
 
     /**
-     * Tell´s wether or not the book is available for borrowing
+     * Returns wether or not the book is available for borrowing
+     * @return True if the book is available for borrowing, False otherwise
      */
     public boolean isAvailable() {
         return this.available;

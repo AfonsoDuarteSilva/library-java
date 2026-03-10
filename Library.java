@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> books;
     private ArrayList<User> users;
-    private ArrayList<Loan> onLoanBooks;
+    private ArrayList<Loan> booksOnLoan;
 
     /**
      * Creates a new library
@@ -11,7 +11,7 @@ public class Library {
     public Library () {
         this.books = new ArrayList<>();
         this.users = new ArrayList<>();
-        this.onLoanBooks = new ArrayList<>();
+        this.booksOnLoan = new ArrayList<>();
     }
 
     /**
@@ -32,13 +32,13 @@ public class Library {
 
     /**
      * Borrows a book that the user asked
-     * @param user that asked to borrow the book
-     * @param book book  that the user asked to borrow
+     * @param user that requested the loan 
+     * @param book book that the user requested
      */
     public void borrowBook(User user, Book book) {
         if (book.isAvailable()) {
             Loan bookOnLoan = new Loan(book, user, LocalDate.now());
-            onLoanBooks.add(bookOnLoan);
+            booksOnLoan.add(bookOnLoan);
             book.setAvailable(false);
         } else {
             throw new IllegalArgumentException("Book is not available to borrow");
@@ -51,13 +51,16 @@ public class Library {
      * @param book book that was returned
      * @requires {@code !book.isAvailable()}
      */
-    public void returnBook(User user, Book book) {
-        onLoanBooks.remove(searchLoan(book));
+    public void returnBook(Book book) {
+        booksOnLoan.remove(searchLoan(book));
         book.setAvailable(true);
     }
 
+    /**
+     * Search for the book on the list of books on loan
+     */
     public Loan searchLoan(Book book) {
-        for(Loan loan : onLoanBooks) {
+        for(Loan loan : booksOnLoan) {
             if(loan.getRequestedBook().equals(book)) {
                 return loan;
             } 

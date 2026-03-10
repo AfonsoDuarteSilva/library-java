@@ -25,7 +25,7 @@ public class Loan {
 
     /**
      * Returns the requested book
-     * @return book that has been requested 
+     * @return the book being loaned
      */
     public Book getRequestedBook() {
         return this.requestedBook;
