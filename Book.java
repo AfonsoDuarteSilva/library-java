@@ -6,6 +6,7 @@ public class Book {
     private final String author;
     private final String ISBN;
     private final String genre;
+    private double price;
     private boolean available;
 
     /**
@@ -14,13 +15,15 @@ public class Book {
      * @param author the book´s author
      * @param ISBN the book´s unique id
      * @param genre the book´s genre
+     * @param price the book´s price
      */
-    public Book (String title, String author, String ISBN, String genre) {
+    public Book (String title, String author, String ISBN, String genre, Double price) {
         this.title = title;
         this.author = author;
         this.ISBN = ISBN;
         this.genre = genre;
         available = true;
+        this.price = price;
 
     }
 
@@ -57,11 +60,27 @@ public class Book {
     }
 
     /**
-     * Returns wether or not the book is available for borrowing
+     * Returns whether or not the book is available for borrowing
      * @return True if the book is available for borrowing, False otherwise
      */
     public boolean isAvailable() {
         return this.available;
+    }
+
+    /**
+     * Returns the price of the book
+     * @return price of the book
+     */
+    public Double getPrice() {
+        return this.price;
+    }
+
+    /**
+     * Sets the book current price
+     * @param price book´s price
+     */
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     /**

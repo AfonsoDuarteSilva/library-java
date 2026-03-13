@@ -1,5 +1,9 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+/**
+ * Represents a library
+ */
 public class Library {
     private ArrayList<Book> books;
     private ArrayList<User> users;
